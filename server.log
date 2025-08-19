@@ -1,0 +1,186 @@
+nohup: ignoring input
+warning: unused import: `sha2::Sha256`
+  --> src/key_generation/mod.rs:11:5
+   |
+11 | use sha2::Sha256;
+   |     ^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` on by default
+
+warning: unused import: `KeyStrength`
+ --> src/key_storage/mod.rs:1:86
+  |
+1 | ...entError, UpdateKeyRequest, KeyType, KeyStrength};
+  |                                         ^^^^^^^^^^^
+
+warning: unused import: `http::StatusCode`
+  --> src/main.rs:12:5
+   |
+12 |     http::StatusCode,
+   |     ^^^^^^^^^^^^^^^^
+
+warning: fields `active_only`, `key_type`, and `tags` are never read
+  --> src/api/mod.rs:25:9
+   |
+24 | pub struct ListKeysQuery {
+   |            ------------- fields in this struct
+25 |     pub active_only: Option<bool>,
+   |         ^^^^^^^^^^^
+26 |     pub key_type: Option<String>,
+   |         ^^^^^^^^
+27 |     pub tags: Option<String>,
+   |         ^^^^
+   |
+   = note: `ListKeysQuery` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` on by default
+
+warning: function `validate_key_pair` is never used
+   --> src/key_generation/mod.rs:158:8
+    |
+158 | pub fn validate_key_pair(key_pair: &KeyPair) -> Result<(), KeyManagementError> {
+    |        ^^^^^^^^^^^^^^^^^
+
+warning: function `generate_key_pair_with_metadata` is never used
+   --> src/key_generation/mod.rs:191:8
+    |
+191 | pub fn generate_key_pair_with_metadata(
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: methods `list_keys_filtered`, `deactivate_key`, `rotate_key`, `key_exists`, and `create_backup` are never used
+   --> src/key_storage/mod.rs:92:18
+    |
+17  | impl KeyStorage {
+    | --------------- methods in this implementation
+...
+92  |     pub async fn list_keys_filtered(
+    |                  ^^^^^^^^^^^^^^^^^^
+...
+172 |     pub async fn deactivate_key(&self, key_id: Uuid) -> Result<(), KeyManagementError> {
+    |                  ^^^^^^^^^^^^^^
+...
+196 |     pub async fn rotate_key(&self, old_key_id: Uuid) -> Result<(), KeyManagementError> {
+    |                  ^^^^^^^^^^
+...
+292 |     pub async fn key_exists(&self, key_id: Uuid) -> bool {
+    |                  ^^^^^^^^^^
+...
+312 |     pub async fn create_backup(&self, backup_path: &str) -> Result<(), KeyManagementEr...
+    |                  ^^^^^^^^^^^^^
+
+warning: function `validate_signature_format` is never used
+   --> src/key_verification/mod.rs:113:8
+    |
+113 | pub fn validate_signature_format(signature: &str) -> Result<(), KeyManagementError> {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `validate_public_key_format` is never used
+   --> src/key_verification/mod.rs:127:8
+    |
+127 | pub fn validate_public_key_format(public_key: &str) -> Result<(), KeyManagementError> {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `batch_verify_signatures` is never used
+   --> src/key_verification/mod.rs:148:8
+    |
+148 | pub fn batch_verify_signatures(
+    |        ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: fields `old_key_id`, `new_key_name`, `new_key_description`, `new_key_password`, `new_key_tags`, and `new_key_expires_at` are never read
+   --> src/models/mod.rs:158:9
+    |
+157 | pub struct RotateKeyRequest {
+    |            ---------------- fields in this struct
+158 |     pub old_key_id: Uuid,
+    |         ^^^^^^^^^^
+159 |     pub new_key_name: String,
+    |         ^^^^^^^^^^^^
+160 |     pub new_key_description: Option<String>,
+    |         ^^^^^^^^^^^^^^^^^^^
+161 |     pub new_key_password: Option<String>,
+    |         ^^^^^^^^^^^^^^^^
+162 |     pub new_key_tags: Option<Vec<String>>,
+    |         ^^^^^^^^^^^^
+163 |     pub new_key_expires_at: Option<DateTime<Utc>>,
+    |         ^^^^^^^^^^^^^^^^^^
+    |
+    = note: `RotateKeyRequest` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+warning: fields `key_id` and `immediate` are never read
+   --> src/models/mod.rs:178:9
+    |
+177 | pub struct RevokeKeyRequest {
+    |            ---------------- fields in this struct
+178 |     pub key_id: Uuid,
+    |         ^^^^^^
+179 |     pub reason: Option<String>,
+180 |     pub immediate: bool, // If true, revoke immediately; if false, mark for expiration
+    |         ^^^^^^^^^
+    |
+    = note: `RevokeKeyRequest` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+warning: function `public_key_to_fingerprint` is never used
+ --> src/utils/mod.rs:6:8
+  |
+6 | pub fn public_key_to_fingerprint(public_key_b64: &str) -> Result<String, String> {
+  |        ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `is_valid_base64` is never used
+  --> src/utils/mod.rs:30:8
+   |
+30 | pub fn is_valid_base64(input: &str) -> bool {
+   |        ^^^^^^^^^^^^^^^
+
+warning: function `generate_random_string` is never used
+  --> src/utils/mod.rs:35:8
+   |
+35 | pub fn generate_random_string(length: usize) -> String {
+   |        ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `format_timestamp` is never used
+  --> src/utils/mod.rs:51:8
+   |
+51 | pub fn format_timestamp(timestamp: chrono::DateTime<chrono::Utc>) -> String {
+   |        ^^^^^^^^^^^^^^^^
+
+warning: function `is_valid_uuid` is never used
+  --> src/utils/mod.rs:56:8
+   |
+56 | pub fn is_valid_uuid(input: &str) -> bool {
+   |        ^^^^^^^^^^^^^
+
+warning: function `create_document_hash_from_input` is never used
+  --> src/utils/mod.rs:61:8
+   |
+61 | pub fn create_document_hash_from_input(input: &str) -> String {
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `validate_key_pair_compatibility` is never used
+  --> src/utils/mod.rs:68:8
+   |
+68 | pub fn validate_key_pair_compatibility(
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `sanitize_key_name` is never used
+  --> src/utils/mod.rs:93:8
+   |
+93 | pub fn sanitize_key_name(name: &str) -> String {
+   |        ^^^^^^^^^^^^^^^^^
+
+warning: `inkan-key-management-module` (bin "inkan-key-management-module") generated 20 warnings (run `cargo fix --bin "inkan-key-management-module"` to apply 3 suggestions)
+    Finished `release` profile [optimized] target(s) in 0.09s
+     Running `target/release/inkan-key-management-module`
+[2m2025-08-18T11:28:37.104422Z[0m [32m INFO[0m [2minkan_key_management_module[0m[2m:[0m 🚀 Starting Inkan Key Management Module...
+[2m2025-08-18T11:28:37.104610Z[0m [32m INFO[0m [2minkan_key_management_module[0m[2m:[0m 📁 Storage initialized with 0 keys
+[2m2025-08-18T11:28:37.104743Z[0m [32m INFO[0m [2minkan_key_management_module[0m[2m:[0m 🌐 Key management server listening on http://localhost:3002
+[2m2025-08-18T11:28:37.104749Z[0m [32m INFO[0m [2minkan_key_management_module[0m[2m:[0m 📚 Available endpoints:
+[2m2025-08-18T11:28:37.104752Z[0m [32m INFO[0m [2minkan_key_management_module[0m[2m:[0m    POST /keys/generate - Generate new key pair
+[2m2025-08-18T11:28:37.104754Z[0m [32m INFO[0m [2minkan_key_management_module[0m[2m:[0m    GET  /keys - List all keys
+[2m2025-08-18T11:28:37.104757Z[0m [32m INFO[0m [2minkan_key_management_module[0m[2m:[0m    GET  /keys/search - Search keys
+[2m2025-08-18T11:28:37.104760Z[0m [32m INFO[0m [2minkan_key_management_module[0m[2m:[0m    GET  /keys/stats - Get key statistics
+[2m2025-08-18T11:28:37.104766Z[0m [32m INFO[0m [2minkan_key_management_module[0m[2m:[0m    GET  /keys/:id - Get key information
+[2m2025-08-18T11:28:37.104771Z[0m [32m INFO[0m [2minkan_key_management_module[0m[2m:[0m    PUT  /keys/:id - Update key information
+[2m2025-08-18T11:28:37.104774Z[0m [32m INFO[0m [2minkan_key_management_module[0m[2m:[0m    POST /keys/:id/revoke - Revoke a key
+[2m2025-08-18T11:28:37.104777Z[0m [32m INFO[0m [2minkan_key_management_module[0m[2m:[0m    GET  /keys/:id/public - Get public key
+[2m2025-08-18T11:28:37.104781Z[0m [32m INFO[0m [2minkan_key_management_module[0m[2m:[0m    POST /sign - Sign document with private key
+[2m2025-08-18T11:28:37.104784Z[0m [32m INFO[0m [2minkan_key_management_module[0m[2m:[0m    POST /verify - Verify document signature
+[2m2025-08-18T11:28:37.104788Z[0m [32m INFO[0m [2minkan_key_management_module[0m[2m:[0m    GET  /health - Health check

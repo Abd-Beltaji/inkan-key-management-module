@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  key-management:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: inkan-key-management:latest
+    container_name: inkan-key-management
+    ports:
+      - "3002:3002"
+    environment:
+      - RUST_LOG=info
+      - STORAGE_PATH=/app/data/keys.json
+    volumes:
+      - key-data:/app/data
+      - ./keys.json:/app/data/keys.json:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - inkan-network
+
+  key-management-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: inkan-key-management:dev
+    container_name: inkan-key-management-dev
+    ports:
+      - "3002:3002"
+    environment:
+      - RUST_LOG=debug
+      - STORAGE_PATH=/app/data/keys.json
+    volumes:
+      - key-data-dev:/app/data
+      - ./src:/app/src:ro
+      - ./Cargo.toml:/app/Cargo.toml:ro
+      - ./Cargo.lock:/app/Cargo.lock:ro
+    restart: unless-stopped
+    command: ["cargo", "run", "--release"]
+    networks:
+      - inkan-network
+
+volumes:
+  key-data:
+    driver: local
+  key-data-dev:
+    driver: local
+
+networks:
+  inkan-network:
+    driver: bridge

@@ -1,0 +1,37 @@
+# Simple Dockerfile that copies the working local binary
+FROM debian:bookworm-slim
+
+# Install runtime dependencies
+RUN apt-get update && apt-get install -y \
+    ca-certificates \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create non-root user
+RUN useradd -r -s /bin/false inkan
+
+# Set working directory
+WORKDIR /app
+
+# Copy the working local binary
+COPY target/release/inkan-key-management-module /app/inkan-key-management-module
+
+# Create data directory
+RUN mkdir -p /app/data && chown -R inkan:inkan /app
+
+# Switch to non-root user
+USER inkan
+
+# Expose port
+EXPOSE 3002
+
+# Set environment variables
+ENV RUST_LOG=info
+ENV STORAGE_PATH=/app/data/keys.json
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:3002/health || exit 1
+
+# Run the application
+CMD ["./inkan-key-management-module"]

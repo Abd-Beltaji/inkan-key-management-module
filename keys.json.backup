@@ -1,0 +1,12 @@
+[
+  {
+    "id": "ee3c5d0b-e740-45d8-8194-adc0afe68dc4",
+    "name": "Test Key",
+    "description": "Test key for development",
+    "public_key": "xMXGx8jJysvMzc7P0NHS09TV1tfY2drb3N3e3+Dh4uM=",
+    "private_key": "xMbIyszO0NLU1tja3N7g4uTm6Ors7vDy9Pb4+vz+AAIEBggKDA4QEhQWGBocHiAiJCYoKiwuMDI0Njg6PD5AQg==",
+    "created_at": "2025-08-17T14:40:54.535424554Z",
+    "last_used": null,
+    "is_active": true
+  }
+]

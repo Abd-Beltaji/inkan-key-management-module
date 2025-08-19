@@ -1,0 +1,35 @@
+[
+  {
+    "id": "b735d69d-0f6f-46dd-aa74-24a8223f8e94",
+    "name": "test-key",
+    "description": "Test key for verification",
+    "public_key": "TrdAu+2Rj1plZv4Ho0QF6K3jxajVTakiV3GzYrKLKTI=",
+    "private_key": "QVCsMShSIVu/8/+yKoDbcIHZZTTo9NXeYhcFqcl9j577F9Ss0wvLmSQSQp+dgnqYjVzT7A8OdQxcgQeWVSVZgPFg8BPNvOOyzX+eVpqoYnj/PEX6wL6QYDV+ehY=",
+    "salt": "L2Z5zn3kY7K7KdSNAQiRD83M0ldwzvf12Z5qnJoaMGY=",
+    "created_at": "2025-08-18T11:36:17.842316736Z",
+    "last_used": null,
+    "expires_at": null,
+    "is_active": true,
+    "tags": [],
+    "key_type": "Ed25519Encrypted",
+    "key_strength": "Standard"
+  },
+  {
+    "id": "9e9489a5-fafe-4764-a3f4-5605151bdbe4",
+    "name": "Test Key",
+    "description": "Test key for development",
+    "public_key": "BOwR/LoayJNAk7Mg6+XOehXj0WngOCpQEjLT/VAdE3w=",
+    "private_key": "UYjcbQG+uI/+sEBLHkyFdu6HMhPXYLSHWO7DZJ292Qwr0R8wY8UgDBmmjt57jzzac94xoH3w59N40IUVpCobq0twZwNfcLVoSvTgEBwntsabWmlxb3BUHZUJcTA=",
+    "salt": "eAJYcUjf+kvi3ayijxQ6d8IgutvsWKru+KCAA0WikL0=",
+    "created_at": "2025-08-18T11:29:03.555254929Z",
+    "last_used": null,
+    "expires_at": null,
+    "is_active": true,
+    "tags": [
+      "test",
+      "development"
+    ],
+    "key_type": "Ed25519Encrypted",
+    "key_strength": "Standard"
+  }
+]
